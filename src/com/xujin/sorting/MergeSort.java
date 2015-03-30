@@ -22,7 +22,7 @@ public class MergeSort {
 		mergeSort(arr, 0, arr.length - 1);
 		
 		//print the sorted array
-		System.out.println("\n插入排序后：");
+		System.out.println("\n排序后：");
 		for(int i=0; i<10; i++){	
 			System.out.print(arr[i] + " ");
 		}		
