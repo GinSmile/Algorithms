@@ -8,37 +8,24 @@
 
 package com.xujin.sorting;
 
-import java.util.Random;
-
 public class InsertionSort {
 	public static void main(String...args){
-		//make a random array
-		int[] arr = new int[10];
-		for(int i=0; i<10; i++){
-			arr[i] = new Random().nextInt(100);		
-			System.out.print(arr[i] + " ");	
-		}
-		
+		int[] arr = {2,52,87,62,82,62,32,96,31,69};		
 		insertionSort(arr);
-		
-		//print the sorted array
 		System.out.println("\n插入排序后：");
 		for(int i=0; i<10; i++){	
-			System.out.print(arr[i] + " ");
+			System.out.print(arr[i] + ",");
 		}
-				
-		
 	}
 
 	private static void insertionSort(int[] arr) {
-		// TODO Auto-generated method stub
 		if(arr.length < 2) return;
 		
-		int firstUnsortedNum;
+		int firstUnsortedNum;//第一个未排序的数，我们认为arr[0]已经排好序，因而从arr[1]开始
 		for(int i=1; i<arr.length; i++){
 			firstUnsortedNum = arr[i];
 			int j = i - 1;
-			while(j>=0 && firstUnsortedNum < arr[j]){
+			while(j>=0 && firstUnsortedNum < arr[j]){//和已排好序的数进行比较，从最后一个已排序数开始
 				arr[j+1] = arr[j];
 				j--;
 			}
@@ -46,4 +33,3 @@ public class InsertionSort {
 		}
 	}
 }
-

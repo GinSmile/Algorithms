@@ -8,33 +8,17 @@
 
 package com.xujin.sorting;
 
-import java.lang.reflect.Array;
-import java.util.Random;
-
-import com.xujin.searching.BinarySearch;
-
 public class InsertionSort_BinarySearchEdition {
 	public static void main(String...args){
-		//make a random array
-		int[] arr = new int[10];
-		for(int i=0; i<10; i++){
-			arr[i] = new Random().nextInt(100);		
-			System.out.print(arr[i] + " ");	
-		}
-		
+		int[] arr = {2,52,87,62,82,62,32,96,31,69};		
 		insertionSort(arr);
-		
-		//print the sorted array
 		System.out.println("\n插入排序后：");
 		for(int i=0; i<10; i++){	
-			System.out.print(arr[i] + " ");
+			System.out.print(arr[i] + ",");
 		}
-				
-		
 	}
 
 	private static void insertionSort(int[] arr) {
-		// TODO Auto-generated method stub
 		if(arr.length < 2) return;
 		
 		int firstUnsortedNum;
@@ -49,7 +33,7 @@ public class InsertionSort_BinarySearchEdition {
 			}
 			
 			//用二分搜索找到arr[i]应该在什么位置
-			int pos = BinarySearch.binarySearch(firstUnsortedNum, sortedArr);
+			int pos = binarySearch(firstUnsortedNum, sortedArr);
 			pos = Math.abs(pos);
 			
 			//把所有比firstUnsortedNum大的数全部右移一位
@@ -60,6 +44,20 @@ public class InsertionSort_BinarySearchEdition {
 			}
 			arr[pos] = firstUnsortedNum;
 		}
+	}
+	
+	
+	public static int binarySearch(int key, int[] list){//二分查找，返回key的索引。或者若无key，该key应该在位置（负数）
+		int low = 0;
+		int high = list.length - 1;
+		int middle = 0;
+		while(low <= high){
+			middle = low + (high - low)/2;
+			if(key < list[middle]) high = middle - 1;
+			else if(key > list[middle]) low = middle + 1;
+			else return middle;
+		}
+		return low*(-1);
 	}
 }
 

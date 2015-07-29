@@ -11,30 +11,17 @@
 
 package com.xujin.sorting;
 
-import java.util.Random;
-
 public class BubbleSort {
 	public static void main(String...args){
-		//make a random array
-		int[] arr = new int[10];
-		for(int i=0; i<10; i++){
-			arr[i] = new Random().nextInt(100);		
-			System.out.print(arr[i] + " ");	
-		}
-		
+		int[] arr = {2,52,87,62,82,62,32,96,31,69};	
 		bubbleSort(arr);
-		
-		//print the sorted array
 		System.out.println("\n冒泡排序后：");
 		for(int i=0; i<10; i++){	
-			System.out.print(arr[i] + " ");
-		}
-				
-		
+			System.out.print(arr[i] + ",");
+		}	
 	}
 
 	private static void bubbleSort(int[] arr) {
-		// TODO Auto-generated method stub
 		if(arr.length < 2) return;
 		
 		int right;//每次冒泡那个最大元素落在这个索引位置上
@@ -50,7 +37,5 @@ public class BubbleSort {
 			}
 		}
 	}
-	
-
 }
 
